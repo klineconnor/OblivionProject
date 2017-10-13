@@ -29,7 +29,8 @@ public class BroadSword : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.GetComponent<Enemy> () != null) {
-
+			int attack = PlayerStats.Instance.GetAttack();
+			other.GetComponent<Enemy>().Damage(attack);
 		}
 	}
 }

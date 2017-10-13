@@ -5,27 +5,36 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
 
-	NavMeshAgent agent;
-	public float radius;
-	float distance;
-	Transform player;
+
+	public int Health;
+	public int Attack;
+	public int Defense;
+	Rigidbody rb;
 
 	// Use this for initialization
 	void Start () {
-		agent = GetComponent<NavMeshAgent> ();
-		player = CharacterManager.Instance.character.transform;
+		
+		rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		distance = Vector3.Distance (transform.position, player.position);
-		if (distance <= radius) {
-			agent.destination = player.position;
+
+
+
+
+	public void Damage(int attack)
+	{
+		Debug.Log("Enemy Attack");
+		rb.AddForce(new Vector3(1.0f, 0.0f, 0.0f), ForceMode.Impulse);
+		Health = Health - (attack / Defense);
+		if (Health <= 0)
+		{
+			Die();
 		}
 	}
 
-	void OnDrawGizmosSelected() {
-		Gizmos.DrawWireSphere (transform.position, radius);
-	}
-
+	public void Die()
+	{
+		GetComponent<EnemyAI>().enabled = false;
+		GetComponent<NavMeshAgent>().enabled = false;	}
 }
