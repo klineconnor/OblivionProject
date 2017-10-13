@@ -17,4 +17,13 @@ MonoBehaviour:
   equipType: 4
   EquipObject: {fileID: 1902092070632980, guid: 2dba1c0cddd14cd4082fc2e9fd4a13e3,
     type: 2}
+  EquipClone: {fileID: 0}
+  StrengthModifier: 0
+  EnduranceModifier: 0
+  IntelligenceModifier: 0
+  WisdomModifier: 0
+  DexterityModifier: 0
+  CharismaModifier: 0
+  LuckModifier: 0
   weaponType: 0
+  BaseAttack: 10

@@ -9,6 +9,7 @@ public class Equipment : Item {
 	public GameObject EquipClone;
 	public int StrengthModifier;
 	public int EnduranceModifier;
+	public int PerceptionModifier;
 	public int IntelligenceModifier;
 	public int WisdomModifier;
 	public int DexterityModifier;
@@ -19,10 +20,11 @@ public class Equipment : Item {
 	{
 		base.Use ();
 		EquipmentManager.Instance.SetEquipment (this);
-		EquipClone = Instantiate (EquipObject, EquipmentManager.Instance.EquipObjects[(int)equipType].transform);
+		EquipClone = Instantiate (EquipObject, EquipmentManager.Instance.equipObjects[(int)equipType].transform);
 		RemoveItem ();
 		PlayerStats.Instance.Strength.AddModifier (StrengthModifier);
 		PlayerStats.Instance.Endurance.AddModifier (EnduranceModifier);
+		PlayerStats.Instance.Perception.AddModifier (PerceptionModifier);
 		PlayerStats.Instance.Intelligence.AddModifier (IntelligenceModifier);
 		PlayerStats.Instance.Wisdom.AddModifier (WisdomModifier);
 		PlayerStats.Instance.Dexterity.AddModifier (DexterityModifier);
@@ -41,4 +43,4 @@ public class Equipment : Item {
 	}
 }
 
-public enum EquipType {Helmet, Chest, Pants, Gloves, Weapon, OffHand, Boots}; 
+public enum EquipType {Helmet, Chest, Pants, Gloves, OffHand, Boots}; 
