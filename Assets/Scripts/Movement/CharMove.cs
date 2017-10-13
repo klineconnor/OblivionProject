@@ -57,7 +57,7 @@ public class CharMove : MonoBehaviour
     void moveChar()
     {
 		if (Input.GetButton ("Run")) {
-			runToggle = 2;
+			runToggle = 4;
 		} else {
 			runToggle = 1;
 		}

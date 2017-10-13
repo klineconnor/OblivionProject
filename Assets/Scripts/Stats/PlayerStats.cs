@@ -22,6 +22,7 @@ public class PlayerStats : MonoBehaviour {
 
 	public Stat Strength;
 	public Stat Intelligence;
+	public Stat Perception;
 	public Stat Dexterity;
 	public Stat Endurance;
 	public Stat Charisma;
@@ -30,6 +31,9 @@ public class PlayerStats : MonoBehaviour {
 
 	public Skill OneHand;
 	public Skill TwoHand;
+
+	public int Attack;
+	public int Defense;
 
 	void Start() {
 		SetMaxHealth ();
@@ -82,5 +86,12 @@ public class PlayerStats : MonoBehaviour {
 	public void SetMaxStamina() {
 		maxStamina = baseStamina;
 		maxStamina += Endurance.GetStat ();
+	}
+
+	public int GetAttack()
+	{
+		int trueAttack;
+		trueAttack = EquipmentManager.Instance.GetWeapon().BaseAttack;
+		return trueAttack;
 	}
 }

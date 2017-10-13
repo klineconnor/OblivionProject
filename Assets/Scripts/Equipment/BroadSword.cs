@@ -6,11 +6,13 @@ public class BroadSword : MonoBehaviour {
 
 	Animator anim;
 	bool draw = false;
-	int BaseAttack;
+	public int BaseAttack;
+	PlayerStats playerStats;
 
 
 	void Start () {
 		anim = GetComponent<Animator> ();
+		playerStats = PlayerStats.Instance;
 	}
 	
 	// Update is called once per frame
@@ -23,15 +25,6 @@ public class BroadSword : MonoBehaviour {
 			Debug.Log ("Attack!");
 			anim.SetTrigger ("Attack");
 		}
-	}
-
-	public void SetBaseAttack(int SetAttack) {
-		BaseAttack = SetAttack;
-	}
-
-	public int GetAttack() {
-		int trueAttack;
-		return trueAttack;
 	}
 
 	void OnTriggerEnter(Collider other) {
